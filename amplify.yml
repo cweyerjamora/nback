@@ -1,0 +1,15 @@
+version: 1.1
+frontend:
+  phases:
+    build:
+      commands:
+        - echo "Building app"
+        - mkdir dist
+        - cp index.html dist/
+        - cp styles.css dist/
+        - cp nback.js dist/
+  artifacts:
+    baseDirectory: dist
+    files:
+      - '**/*'
+  framework: html

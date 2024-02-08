@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>N-back Game</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://kit.fontawesome.com/e942733adb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1 id="title">N-Back</h1>
+      <div class="center-box">
+        <div id="game-display">
+          <div id="display">
+            <!-- Row 1 -->
+            <div class="display-row">
+              <div class="display-box left top"></div>
+              <div class="display-box top"></div>
+              <div class="display-box right top"></div>
+            </div>
+            <!-- Row 2 -->
+            <div class="display-row">
+              <div class="display-box left"></div>
+              <div class="display-box"></div>
+              <div class="display-box right"></div>
+            </div>
+            <!-- Row 3 -->
+            <div class="display-row">
+              <div class="display-box left bottom"></div>
+              <div class="display-box bottom"></div>
+              <div class="display-box right bottom"></div>
+            </div>
+          </div>
+          <div id="score-board">Score: <span id="score"></span></div>
+          <button id="yes">Match</button>
+          <button id="no">No Match</button>
+          <button id="next">Next</button>
+          <div id="correctness">
+            <i id="correct" class="fa-solid fa-check fa-xl"></i>
+            <i id="incorrect" class="fa-solid fa-times fa-xl"></i>
+          </div>
+        </div>
+
+        <div id="settings-display">
+          <h2>Settings</h2>
+          <label for="num-back">Num Back:</label>
+          <input type="text" id="num-back" value="">
+          <br>
+          <label for="num-items">Num Items:</label>
+          <input type="text" id="num-items" value="">
+          <br><br>
+          <input type="checkbox" id="self-paced" checked>
+          <label for="self-paced">Self-Paced</label>
+          <br><br>
+          <label>Sensory Mode</label>
+          <br>
+          <input type="radio" id="visual" name="sensory-mode" value="visual" checked>
+          <label for="visual">Visual</label>
+          <input type="radio" id="auditory" name="sensory-mode" value="auditory">
+          <label for="auditory">Auditory</label>
+          <br>
+          <button id="save-settings">Save</button>
+        </div>
+
+        <div id="stats-display">
+          <i id="print-stats" class="fas fa-print"></i>
+          <h2>Overall Stats</h2>
+          <div class="stat">Games with 100% accuracy: <span id="stats-wins"></span></div>
+          <br>
+          <div class="stat">Games with less than 100% accuracy: <span id="stats-losses"></span></div>
+          <br>
+          <div class="stat">Streak of games with 100% accuracy: <span id="stats-winning-streak"></span></div>
+          <br>
+          <div class="stat">Correct Guesses: <span id="stats-num-right"></span></div>
+          <br>
+          <div class="stat">Incorrect Guesses: <span id="stats-num-wrong"></span></div>
+
+          <br />
+          <h2>Per-Game Stats</h2>
+          <div id="pergame-stats-container">
+            <table id="pergame-stats-table">
+              <thead>
+                <tr>
+                  <th>Correct</th>
+                  <th>Incorrect</th>
+                  <th>Accuracy</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Game stats rows will be added dynamically using JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <button id="start-game">New Game</button>
+      <button id="goto-settings">Settings</button>
+      <button id="goto-stats">Stats</button>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="nback.js"></script>
+  </body>
+</html>
